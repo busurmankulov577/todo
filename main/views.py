@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-
+from .models import ToDo
 
 def homepage(requests):
     return render(requests, "index.html")
@@ -8,7 +8,8 @@ def go(request):
     return HttpResponse("THIS is MY first Page")
 
 def test(requests):
-    return render(requests, "test.html")
+    todo_list = ToDo.objects.all()
+    return render(requests, "test.html",{"todo_list":todo_list})
 
 def second(request):
     return HttpResponse("test 2 page")
