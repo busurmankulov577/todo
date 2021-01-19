@@ -13,4 +13,12 @@ def test(requests):
 def second(request):
     return HttpResponse("test 2 page")
 
+def addtxt(request):
+    return render(request,"add.html")
+
+def change(request):
+    return render(request,"change.html")
+
+def delete(request):
+    return render(request,"delete.html")
 # Create your views here.
