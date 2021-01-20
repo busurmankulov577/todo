@@ -49,3 +49,7 @@ def add_book(request):
     books.save()
     return redirect(book)
 
+def delete_todo(request,id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(test)
