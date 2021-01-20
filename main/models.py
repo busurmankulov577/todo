@@ -15,4 +15,4 @@ class Book(models.Model):
     genre = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     year = models.DateField(auto_created=True)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)
