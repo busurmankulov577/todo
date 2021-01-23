@@ -12,6 +12,8 @@ def test(request):
     todo_list = ToDo.objects.all()
     return render(request, "test.html",{"todo_list":todo_list})
 
+
+    
 def book(request):
     book_list = Book.objects.all()
     return render(request,"book.html",{"book_list":book_list})
@@ -38,13 +40,13 @@ def add_todo(request):
 
 def add_book(request):
     form = request.POST
-    title = form["book.title"]
+    title=form["book.title"]
     subtitle =form["book.subtitle"]
     description = form["book.description"]
     price = form["book.price"]
     genre = form["book.genre"]
     author = form["book.author"]
-    year = form["book.year"]
+    year = form["book.year"][:10]
     books = Book(title=title,subtitle=subtitle,description=description,price=price,genre=genre,author=author,year=year)
     books.save()
     return redirect(book)
@@ -61,6 +63,12 @@ def mark_todo(request,id):
     todo.save()
     return redirect(test)
 
+def unmark_todo(request,id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = False
+    todo.save()
+    return redirect(test)
+
 def delete_book(request,id):
     books = Book.objects.get(id=id)
     books.delete()
@@ -71,3 +79,34 @@ def mark_book(request,id):
     books.is_favorite = True
     books.save()
     return redirect(book)
+
+def unmark_book(requests,id):
+    books = Book.objects.get(id=id)
+    books.is_favorite = False
+    books.save()
+    return redirect(book)
+    
+
+def details(request):
+    details_book = Book.objects.all()
+    return render(request, "book_detail.html",{"book_list": details_book})
+
+
+
+def DetailsBook(request,id):
+    b = Book.objects.get(id=id)
+    b.save()
+    return redirect(details)
+
+# def DetailsBook(request,id):
+#     form = request.POST
+#     title=form["book.title"]
+#     subtitle =form["book.subtitle"]
+#     description = form["book.description"]
+#     price = form["book.price"]
+#     genre = form["book.genre"]
+#     author = form["book.author"]
+#     year = form["book.year"][:10]
+#     books = Book(title=title,subtitle=subtitle,description=description,price=price,genre=genre,author=author,year=year)
+#     books.save()
+#     return redirect(details)

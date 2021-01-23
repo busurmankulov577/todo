@@ -26,6 +26,7 @@ urlpatterns = [
     path("", homepage, name="home"),
     path("test/", test, name="test"),
     path("book/", book),
+    path("details/",details),
     path("test2/", second),
     path("add/", addtxt),
     path("change/", change),
@@ -34,8 +35,14 @@ urlpatterns = [
     path("add-book/",add_book,name="add-book"),
     path("delete-todo/<id>/",delete_todo,name="delete-todo"),
     path("mark-todo/<id>/",mark_todo,name="mark-todo"),
+    path("unmark-todo/<id>/",unmark_todo,name="unmark-todo"),
+
     path("delete-book/<id>/",delete_book,name="delete-book"),
+
     path("mark-book/<id>/",mark_book,name="mark-book"),
+    path("unmark-book/<id>/",unmark_book,name="unmark-book"),
+
+    path("details-book/<id>/",DetailsBook,name="details-book"),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
