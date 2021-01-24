@@ -43,6 +43,7 @@
                         <span class="checkmark"></span>
                     </label>
                     <h1>{{ book.title }}</h1>
+                    
                 </div>
                 <div class="todo_item_footer">
                     <p>{{ book.subtitle}}</p>
@@ -59,7 +60,7 @@
                             <a href="{% url 'mark-book' book.id %}"><img src="{% static './icons/unmarked.png' %} "></a>
                         {% endif  %}
                         <a href="{% url 'delete-book' book.id %}"><img src="{%  static './icons/delete.png'  %}"></a>
-                        <a href="{% url 'details-book' book.id %}"><img src="{% static './icons/moreinfo.jpg' %}"></a>
+                        <a href="{% url 'details-book' book.id %}">***</a>
                     </div>
                 </div>
             </div>

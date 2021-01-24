@@ -94,19 +94,6 @@ def details(request):
 
 
 def DetailsBook(request,id):
-    b = Book.objects.get(id=id)
-    b.save()
-    return redirect(details)
+    book_object = Book.objects.get(id=id)
+    return render (request,"book_detail.html",{"book_object": book_object})
 
-# def DetailsBook(request,id):
-#     form = request.POST
-#     title=form["book.title"]
-#     subtitle =form["book.subtitle"]
-#     description = form["book.description"]
-#     price = form["book.price"]
-#     genre = form["book.genre"]
-#     author = form["book.author"]
-#     year = form["book.year"][:10]
-#     books = Book(title=title,subtitle=subtitle,description=description,price=price,genre=genre,author=author,year=year)
-#     books.save()
-#     return redirect(details)
