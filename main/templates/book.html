@@ -25,7 +25,8 @@
                 <input class="create_input" type="number" name="book.price" placeholder="Напишите цену">
                 <input class="create_input" type="text" name="book.genre" placeholder="Напишите жанр">
                 <input class="create_input" type="text" name="book.author" placeholder="Напишите автора">
-                <input class="create_input" type="datetime-local" name="book.year" placeholder="Напишите год выхода книги">
+                <input class="create_input" type="datetime-local" name="book.year"
+                    placeholder="Напишите год выхода книги">
                 <button class="create_button">Добавить</button>
             </form>
         </div>
@@ -43,7 +44,7 @@
                         <span class="checkmark"></span>
                     </label>
                     <h1>{{ book.title }}</h1>
-                    
+
                 </div>
                 <div class="todo_item_footer">
                     <p>{{ book.subtitle}}</p>
@@ -55,10 +56,10 @@
                     <p>{{ book.date }}</p>
                     <div class="action_buttons">
                         {% if book.is_favorite %}
-                            <a href="{% url 'unmark-book' book.id %}"><img src="{% static './icons/marked.png' %} "></a>
+                        <a href="{% url 'unmark-book' book.id %}"><img src="{% static './icons/marked.png' %} "></a>
                         {% else %}
-                            <a href="{% url 'mark-book' book.id %}"><img src="{% static './icons/unmarked.png' %} "></a>
-                        {% endif  %}
+                        <a href="{% url 'mark-book' book.id %}"><img src="{% static './icons/unmarked.png' %} "></a>
+                        {% endif %}
                         <a href="{% url 'delete-book' book.id %}"><img src="{%  static './icons/delete.png'  %}"></a>
                         <a href="{% url 'details-book' book.id %}">***</a>
                     </div>
@@ -69,4 +70,4 @@
     </section>
 </body>
 
-</html> 
+</html>
